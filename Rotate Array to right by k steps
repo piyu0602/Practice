@@ -3,7 +3,7 @@ using namespace std;
 
 int main()
 {   
-    int m,steps,temp=0;
+    int m,steps;
     int arr[m+1];
     cout<<"Enter the number of elements: ";
     cin>>m;
