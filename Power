@@ -1,0 +1,19 @@
+#include <iostream>
+#include<math.h>
+using namespace std;
+int main() {
+	int nt,op=0,res=0;;
+	int test[nt];
+	cin >> nt;
+	for(int i=0;i<nt;i++)
+	{
+		cin>>test[i];
+	}
+	for(int i=0;i<nt-1;i++)
+	{
+		op = pow(6,test[i]);
+		res = op%100;
+		cout<<res;
+		cout<<endl;
+	}
+}
