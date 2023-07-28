@@ -1,0 +1,33 @@
+#include<string.h>
+#include <iostream>
+using namespace std;
+
+int last_word(string str)
+{
+    int cnt = 0;
+    bool flag=false;
+    int n = str.length();
+    // cout<<n;
+    for(int i=n;i>=0;i--)
+    {
+        if((str[i]>='a' && str[i]<='z') || (str[i]>='A' && str[i]<='Z'))
+        {
+            cnt++;
+            flag = true;
+            
+        }
+        else
+        {
+            if(flag==true)
+            {
+            return cnt;
+            }
+        }
+    }
+    return cnt;
+}
+int main() {
+    string str = "I am Piyu";
+    cout<<endl<<"Length of the string is: "<<last_word(str);
+    return 0;
+}
