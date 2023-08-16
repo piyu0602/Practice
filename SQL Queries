@@ -13,3 +13,9 @@ ANS: select distinct CITY from STATION where SUBSTR(CITY,length(CITY),1) IN ('A'
 
 Query the list of CITY names from STATION that do not start with vowels. Your result cannot contain duplicates.
 ANS: select distinct CITY from STATION where SUBSTR(CITY,1,1) NOT IN ('A','E','I','O','U','a','e','i','o','u');
+
+
+
+
+Write a query that prints a list of employee names (i.e.: the name attribute) from the Employee table in alphabetical order.
+ANS: select name from Employee order by name;
