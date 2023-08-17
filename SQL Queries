@@ -82,12 +82,32 @@ order by N;
 
 
 
-
-
-
-
-
 Given the table schemas below, write a query to print the company_code, founder name, total number of lead managers, total number of senior managers,
 total number of managers, and total number of employees. Order your output by ascending company_code.
 ANS: select c.company_code , c.founder , count(distinct e.lead_manager_code) ,count(distinct e.senior_manager_code) , count(distinct e.manager_code) , count(distinct e.employee_code) from Company c 
 JOIN Employee e ON c.company_code = e.company_code GROUP BY c.company_code , c.founder ORDER BY c.company_code;
+
+
+
+
+Ketty gives Eve a task to generate a report containing three columns: Name, Grade and Mark. 
+Ketty doesn't want the NAMES of those students who received a grade lower than 8. The report must be in descending order by grade -- 
+i.e. higher grades are entered first. If there is more than one student with the same grade (8-10) assigned to them, order those particular students by their name alphabetically. Finally, if the grade is lower than 8, use "NULL" as their name and list them by their grades in descending order. If there is more than one student with the same grade (1-7) assigned to them, order those particular students by their marks in ascending order.
+Write a query to help Eve.
+
+ANS: select 
+    Case 
+        when gr.Grade>=8 then
+        st.Name
+        when gr.Grade<8 then NULL
+    END AS 
+    NAME , gr.Grade , st.Marks
+from Students st 
+LEFT JOIN Grades gr 
+ON st.Marks >= gr.MIN_MARK and st.Marks <= gr.MAX_MARK
+ORDER BY 
+gr.Grade desc,
+st.Name asc,
+st.Marks asc;
+        
+    
