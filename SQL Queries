@@ -111,3 +111,17 @@ st.Name asc,
 st.Marks asc;
         
     
+
+
+Julia just finished conducting a coding contest, and she needs your help assembling the leaderboard! Write a query to print the respective hacker_id and 
+name of hackers who achieved full scores for more than one challenge. Order your output in descending order by the total number of challenges in which 
+the hacker earned a full score. If more than one hacker received full scores in same number of challenges, then sort them by ascending hacker_id.
+
+ANS: select s.hacker_id , name from Submissions  s 
+    JOIN Hackers h ON h.hacker_id = s.hacker_id
+    JOIN Challenges c ON c.challenge_id = s.Challenge_id
+    JOIN Difficulty d ON d.difficulty_level = c.difficulty_level
+    Where s.Score = d.Score
+    Group By Name , s.hacker_id
+    Having count(s.challenge_id) > 1
+    ORDER BY count(s.challenge_id) desc , s.hacker_id;
