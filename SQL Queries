@@ -146,3 +146,21 @@ WHERE WP.is_evil = 0 AND W.coins_needed = (
     WHERE Wands.power = W.power AND Wands_Property.age = WP.age
 )
 ORDER BY W.power DESC, WP.age DESC;
+
+
+
+
+
+Julia asked her students to create some coding challenges. Write a query to print the hacker_id, name, and the total number of challenges created by each student.
+Sort your results by the total number of challenges in descending order. If more than one student created the same number of challenges, then sort the result by
+hacker_id. If more than one student created the same number of challenges and the count is less than the maximum number of challenges created, then exclude those
+students from the result.
+
+ANS: select h.hacker_id , h.name ,count(c.challenge_id) as cnt from Hackers h JOIN Challenges c 
+    ON h.hacker_id = c.hacker_id
+    group by c.hacker_id,h.name
+    having 
+    cnt = (select COUNT(c1.challenge_id) from Challenges c1 group by c1.hacker_id       ORDER BY count(*) desc LIMIT 1) OR
+    cnt NOT IN (select COUNT(c2.challenge_id) from Challenges c2 group by c2.hacker_id         having c2.hacker_id <> c.hacker_id)
+    ORDER BY cnt desc , c.hacker_id ;
+    
