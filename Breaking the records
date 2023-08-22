@@ -2,3 +2,31 @@ Maria plays college basketball and wants to go pro. Each season she maintains a 
 most points and least points in a game. Points scored in the first game establish her record for the season, and she begins counting from there.
 
 ANS: 
+vector<int> breakingRecords(vector<int> scores) {
+    int min = scores[0];
+    int cnt1 =0;
+    int max = 0;
+    int cnt2=0;
+    
+    vector<int> res;
+    for(int i=0;i<scores.size();i++)
+    {
+        if(max<scores[i])
+        {
+            max = scores[i];
+            cnt1 ++;    
+        }
+    }
+    for(int i=1;i<scores.size();i++)
+    {
+        if(min>scores[i])
+        {
+            min = scores[i];
+            cnt2++;
+        }
+    }
+    
+    res.push_back(cnt1-1);
+    res.push_back(cnt2);
+return res;
+}
