@@ -3,3 +3,31 @@ You are choreographing a circus show with various animals. For one act, you are 
 The first kangaroo starts at location  and moves at a rate of  meters per jump.
 The second kangaroo starts at location  and moves at a rate of  meters per jump.
 You have to figure out a way to get both kangaroos at the same location at the same time as part of the show. If it is possible, return YES, otherwise return NO.
+
+
+ANS:
+string kangaroo(int x1, int v1, int x2, int v2) {
+    int  a  = x1+v1;
+    int b = x2 +v2;
+    
+    if(v1 > v2)
+    {
+        if(b%a ==0 || a==b)
+        {
+            return "YES";
+        }
+        else if((x2-x1)%(v2-v1) == 0  || (x1-x2)%(v1-v2) == 0 ) 
+        {
+            return "YES";
+        }
+        else
+        {
+            return "NO";
+        }
+    }
+    else
+    {
+        return "NO";
+    }
+
+}
