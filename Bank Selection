@@ -10,6 +10,7 @@ EMI = loanAmount * monthlyInterestRate / ( 1 – 1 / (1 + monthlyInterestRate)^(
 import java.util.*;
 
 
+
 class BankEligibility {
     public static void main(String[] args) {
         // System.out.println("Hello, World!");
