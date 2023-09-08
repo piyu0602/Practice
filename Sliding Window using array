@@ -23,6 +23,7 @@ void slide_window(int size,int n,int arr[], int start)
         cout<<max<<endl;
        
     } 
+
     
 };
 
