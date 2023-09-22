@@ -16,6 +16,7 @@ vector<int> array_queries (int N, int M, vector<int> A, vector<int> B, int Q, ve
    return result;
 }
 
+
 int main() {
 
     ios::sync_with_stdio(0);
